@@ -16,6 +16,12 @@ model = pickle.load(open(MODEL_PATH, "rb"))
 feature_order: List[str] = json.load(open(FEATURES_PATH))
 demos = pd.read_csv(DEMOS_PATH, dtype={"zipcode": str}).set_index("zipcode")
 
+# Columns the client must send to the "required" endpoint
+# We compute them as the model's features that do NOT come from demographics
+DEMO_COLS = set(demos.columns) - {"zipcode"}
+HOUSE_REQUIRED = sorted([c for c in feature_order if c not in DEMO_COLS])
+REQUIRED_SET = set(HOUSE_REQUIRED + ["zipcode"])
+
 app = FastAPI(title="Sound Realty Price API")
 
 
@@ -71,5 +77,23 @@ def predict(payload: Union[Dict[str, Any], List[Dict[str, Any]]]):
 
 
 @app.post("/predict_required")
-def predict_required(payload):
-    return predict(payload)
+def predict_required(payload: Union[Dict[str, Any], List[Dict[str, Any]]]):
+    items = payload if isinstance(payload, list) else [payload]
+
+    # Validate that each item has at least the minimal fields
+    def _validate(item: Dict[str, Any]) -> Dict[str, Any]:
+        missing = [k for k in REQUIRED_SET if k not in item]
+        if missing:
+            raise HTTPException(
+                status_code=400, detail=f"Missing required keys: {missing}"
+            )
+        return item
+
+    validated = [_validate(x) for x in items]
+    # Reuse the main predictor so the behavior stays identical
+    return predict(validated)
+
+
+@app.get("/predict_required/required_keys")
+def required_keys():
+    return {"required_keys": HOUSE_REQUIRED + ["zipcode"]}

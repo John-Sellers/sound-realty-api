@@ -113,6 +113,38 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "predict_required",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bedrooms\": 4,\n    \"bathrooms\": 1.0,\n    \"sqft_living\": 1680,\n    \"sqft_lot\": 5043,\n    \"floors\": 1.5,\n    \"waterfront\": 0,\n    \"view\": 0,\n    \"condition\": 4,\n    \"grade\": 6,\n    \"sqft_above\": 1680,\n    \"sqft_basement\": 0,\n    \"yr_built\": 1911,\n    \"yr_renovated\": 0,\n    \"zipcode\": 98118,\n    \"lat\": 47.5354,\n    \"long\": -122.273,\n    \"sqft_living15\": 1560,\n    \"sqft_lot15\": 5765\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/predict_required",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"predict_required"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
