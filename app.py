@@ -1,4 +1,5 @@
 import json
+import time
 import pickle
 from pathlib import Path
 from typing import Dict, List, Any, Union
@@ -68,6 +69,8 @@ def predict(payload: Union[Dict[str, Any], List[Dict[str, Any]]]):
         "predictions": yhat,
         "count": len(yhat),
         "model_meta": {
+            "model_version": "1.0",
+            "deployment_date": int(time.time()),
             "feature_count": len(feature_order),
             "feature_order_sha": __import__("hashlib")
             .sha1(",".join(feature_order).encode())
