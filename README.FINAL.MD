@@ -25,8 +25,6 @@ modal_app.py builds from the provided Dockerfile
 ```bash
 modal deploy modal_app.py
 # copy the printed URL
-Optional. Streamlit demo app
-Run locally
 ```
 
 ### API Base URL
