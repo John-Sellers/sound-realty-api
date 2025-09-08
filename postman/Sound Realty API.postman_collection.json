@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "77a2c79d-e20b-42fc-8522-56e6f108427d",
+		"name": "Sound Realty API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47648807",
+		"_collection_link": "https://john-sellers-619c4641-2455909.postman.co/workspace/John-Sellers's-Workspace~5c6b652c-a458-426e-8277-7aba075a477d/collection/47648807-77a2c79d-e20b-42fc-8522-56e6f108427d?action=share&source=collection_link&creator=47648807"
+	},
+	"item": [
+		{
+			"name": "/predict",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bedrooms\": 4,\n    \"bathrooms\": 1.0,\n    \"sqft_living\": 1680,\n    \"sqft_lot\": 5043,\n    \"floors\": 1.5,\n    \"waterfront\": 0,\n    \"view\": 0,\n    \"condition\": 4,\n    \"grade\": 6,\n    \"sqft_above\": 1680,\n    \"sqft_basement\": 0,\n    \"yr_built\": 1911,\n    \"yr_renovated\": 0,\n    \"zipcode\": 98118,\n    \"lat\": 47.5354,\n    \"long\": -122.273,\n    \"sqft_living15\": 1560,\n    \"sqft_lot15\": 5765\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/predict",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bedrooms\": 4,\n    \"bathrooms\": 1.0,\n    \"sqft_living\": 1680,\n    \"sqft_lot\": 5043,\n    \"floors\": 1.5,\n    \"waterfront\": 0,\n    \"view\": 0,\n    \"condition\": 4,\n    \"grade\": 6,\n    \"sqft_above\": 1680,\n    \"sqft_basement\": 0,\n    \"yr_built\": 1911,\n    \"yr_renovated\": 0,\n    \"zipcode\": 98118,\n    \"lat\": 47.5354,\n    \"long\": -122.273,\n    \"sqft_living15\": 1560,\n    \"sqft_lot15\": 5765\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/healthz",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bedrooms\": 4,\n    \"bathrooms\": 1.0,\n    \"sqft_living\": 1680,\n    \"sqft_lot\": 5043,\n    \"floors\": 1.5,\n    \"waterfront\": 0,\n    \"view\": 0,\n    \"condition\": 4,\n    \"grade\": 6,\n    \"sqft_above\": 1680,\n    \"sqft_basement\": 0,\n    \"yr_built\": 1911,\n    \"yr_renovated\": 0,\n    \"zipcode\": 98118,\n    \"lat\": 47.5354,\n    \"long\": -122.273,\n    \"sqft_living15\": 1560,\n    \"sqft_lot15\": 5765\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/healthz",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"healthz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "predict_required",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"bedrooms\": 4,\n    \"bathrooms\": 1.0,\n    \"sqft_living\": 1680,\n    \"sqft_lot\": 5043,\n    \"floors\": 1.5,\n    \"waterfront\": 0,\n    \"view\": 0,\n    \"condition\": 4,\n    \"grade\": 6,\n    \"sqft_above\": 1680,\n    \"sqft_basement\": 0,\n    \"yr_built\": 1911,\n    \"yr_renovated\": 0,\n    \"zipcode\": 98118,\n    \"lat\": 47.5354,\n    \"long\": -122.273,\n    \"sqft_living15\": 1560,\n    \"sqft_lot15\": 5765\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/predict_required",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"predict_required"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		}
+	]
+}
