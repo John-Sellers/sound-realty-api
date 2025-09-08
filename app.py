@@ -68,3 +68,8 @@ def predict(payload: Union[Dict[str, Any], List[Dict[str, Any]]]):
             .hexdigest()[:12],
         },
     }
+
+
+@app.post("/predict_required")
+def predict_required(payload):
+    return predict(payload)
